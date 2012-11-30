@@ -1,0 +1,19 @@
+//
+// Prefix header for all source files of the 'StockWatcher' target in the 'StockWatcher' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+
+// Log levels: off, error, warn, info, verbose
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+//static const int ddLogLevel = LOG_LEVEL_INFO;
+static NSString *const RedTag = @"RedTag";
+static NSString *const GreenTag = @"GreenTag";
+
+#define DDLogRed(frmt, ...) LOG_OBJC_TAG_MACRO(NO, 0, 0, 0, RedTag, frmt, ##__VA_ARGS__)
+#define DDLogGreen(frmt, ...) LOG_OBJC_TAG_MACRO(NO, 0, 0, 0, GreenTag, frmt, ##__VA_ARGS__)
